@@ -1,0 +1,118 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url(../imgs/Background.jpg);
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+}
+  
+.planets-wrapper {
+    width: 100%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.planets {
+    margin: 2rem;
+    border-radius: 50%;
+    animation: rotate 38s linear infinite;
+    background-image: url(../imgs/sun.png);
+    background-size: 100px;
+    background-repeat: repeat;
+    box-shadow: inset 0.02px 2px 4px 2px rgb(2, 2, 0),
+    inset -6px 0 12px 4px rgba(255, 255, 255, 0.3);
+}
+
+#Solen {
+    height: 50rem;
+    width: 50rem;
+    position: absolute;
+    left: -40rem;
+    background-size: 50rem;
+    box-shadow: inset 8px 36px 80px 36px rgb(2, 2, 0),
+    inset -6px 0 12px 4px rgba(255, 255, 255, 0.3);
+    animation: solen 45s linear infinite;
+}
+
+@keyframes solen {
+    from { background-position: 0px 0px; }
+    to { background-position: 50rem 0px; }
+}
+
+#Merkurius {
+    height: 1rem;
+    width: 1rem;
+    background-color: #888888;
+    background-image: url(../imgs/merkurius.png);
+    animation: rotate 9s linear infinite;
+}   
+
+#Venus {
+    height: 1.5rem;
+    width: 1.5rem;
+    background-color: #E7CDCD;
+    background-image: url(../imgs/venus.png);
+    animation: rotate 12s linear infinite;
+}   
+
+
+
+#Jorden {
+    height: 2rem;
+    width: 2rem;
+    background-color: #428ED4;
+    background-image: url(../imgs/Jorden.png);
+    animation: rotate 10s linear infinite;
+}   
+
+#Mars {
+    height: 1rem;
+    width: 1rem;
+    background-color: #EF5F5F;
+    background-image: url(../imgs/Mars.png);
+    animation: rotate 8s linear infinite;
+} 
+
+#Jupiter {
+    height: 5rem;
+    width: 5rem;
+    background-color: #E29468;
+    background-image: url(../imgs/jupiter.png);
+    animation: rotate 6s linear infinite;
+} 
+
+#Saturnus {
+    height: 4.5rem;
+    width: 4.5rem;
+    background-color: #E29468;
+    background-image: url(../imgs/saturnus.png);
+    animation: rotate 8s linear infinite;
+} 
+
+#Uranus {
+    height: 3rem;
+    width: 3rem;
+    background-color: #C9D4F1;
+    background-image: url(../imgs/uranus.png);
+    animation: rotate 6s linear infinite;
+} 
+
+#Neptunus {
+    height: 3rem;
+    width: 3rem;
+    background-color: #7A91A7;
+    background-image: url(../imgs/neptunus.png);
+    animation: rotate 6s linear infinite;
+} 
+
+@keyframes rotate {
+    0% {background-position-x: 0}
+    100% {background-position-x: 100px}
+}
