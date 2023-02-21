@@ -37,37 +37,49 @@ function generateInfo(data) {
     `
 }
 
+let searchText = document.querySelector(".planet-search");
+searchText.addEventListener("click", () =>{
+    searchPlanet()
+})
 
 function searchPlanet() {
-    let input = document.querySelector("#search");
+    let searchWrapper = document.querySelector(".search-wrapper")
     let header = document.querySelector("header");
+    searchWrapper.innerHTML = `
+    <input type="text" id="search" class="search-input"><br>
+    <label for="search" class="search-input">SÖK</label> 
+    `
+    let input = document.querySelector("#search");
     input.addEventListener("change", () => {
         for (i = 0; i < planetList.length; i++) {
             console.log(planetList[i].name);
             if (input.value === planetList[i].name) {
                 localStorage.setItem("clickedPlanet", JSON.stringify(planetList[i]))
-            header.innerHTML = `
-            <h1 class="header__h1">SOLSYSTEMET</h1>
-            <section class="header__value">
-            <h2>Du har sökt på ${planetList[i].name}!</h2>
-            <a href="../html/info.html">Yaaay, ge mig info!</a>
-            <a href="../html/info.html">Näääy, jag vill söka igen!</a>
-            </section>
-            `
-                return;
+            searchWrapper.innerHTML = `
+            <h2>${planetList[i].name}</h2><button class="back-x">&#10005</button>
+            <p">${planetList[i].desc}</p> 
+            <a href="../html/info.html">Tryck här för mer info!</a>
+             `
+             
+             return;
             }
         }
-            header.innerHTML = `
-            <h1 class="header__h1">SOLSYSTEMET</h1>
-            <section class="header__novalue">
+            searchWrapper.innerHTML = `
             <h2>väldigt ledsen men det du sökte var ingen planet...</h2>
-            <a href="../html/index.html">Försök igen!</a>
-            </section>
+            <button class="back-btn">Försök igen</button>
             `
-          console.log('value not found')
           input.value = "";
+          let backBtn = document.querySelector(".back-btn");
+          backBtn.addEventListener("click", () => {
+            console.log("hej");
+            searchWrapper.innerHTML = `
+            <input type="text" id="search" class="search-input"><br>
+            <label for="search" class="search-input">SÖK</label> 
+            `
+        })
     })
 }
-searchPlanet()
+
 generateClickableUI()
+
 
