@@ -4,17 +4,21 @@ function generateInfoUi (){
     let infoWrapper = document.querySelector(".info-wrapper")
     infoWrapper.innerHTML = `
     <h1 class="planet__name">${data.name}</h1>
-    <h2 class="planet__latin-name">${data.latinName}</h2>
-    <h3 class="planet__type">${data.type}</h2>
+    <h3 class="planet__latin-name">Latinskt namn: ${data.latinName}</h3>
+    <h3 class="planet__type">Typ av planet: ${data.type}</h2>
     <p>${data.desc}</p>
-    <p> antal jorddygn runt sin egen axel: ${data.rotation}</p>
-    <p> antal jorddygn runt solen: ${data.orbitalPeriod}</p>
-    <h3>Omkrets:<br><span>${data.circumference}</span></h3>
-    <h3>Km från solen:<br><span>${data.distance}</span></h3>
-    <h3>Max temp:<br><span>${data.temp.day}</span></h3>
-    <h3>Min temp:<br><span>${data.temp.night}</span></h3>
-    <h3>Månar:<br><span>${data.moons}</span></h3>
-    <a href="../html/index.html">mer info!</a>
+    <h3> antal jorddygn runt sin egen axel: ${data.rotation}</h3>
+    <h3> antal jorddygn runt solen: ${data.orbitalPeriod}</h3>
+    <div class ="data-wrapper">
+    <h3>Omkrets:<br>${data.circumference}</h3>
+    <h3>Km från solen:<br>${data.distance}</h3>
+    <h3>Max temp: ${data.temp.day}</h3>
+    <h3>Min temp: ${data.temp.night}</h3>
+    </div>
+    <div class="mons">
+    <h3>Månar:<br>${data.moons}</h3>
+    </div>
+    <a href="../html/index.html">Tillbaka!</a>
     `
 }
 
