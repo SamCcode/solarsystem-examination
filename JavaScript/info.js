@@ -18,7 +18,7 @@ function generateInfoUi (){
     <div class="moons">
     <h3>Månar:<br>${data.moons}</h3>
     
-    <a href="../html/index.html">Tillbaka!</a>
+    <a href="./index.html">Tillbaka!</a>
     `
 }
 

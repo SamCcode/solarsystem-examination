@@ -43,7 +43,7 @@ function renderOnclickUi(data) {
     <h3>Månar: ${data.moons}</h3>
     </div>
     <span class="left-arrow">&#171</span>
-    <a href="../html/info.html">mer info!</a>
+    <a href="./info.html">mer info!</a>
     <span class="right-arrow">&#187</span>
     `
     // lägg till eventlyssnare till krysset
@@ -143,7 +143,7 @@ function renderSearchedInfoToUi(inputSearchPlanet) {
     <button class="back-x">&#10005</button>
     <p">${inputSearchPlanet.desc}</p> 
     <span class="left-searcharrow">&#171</span>
-    <a href="../html/info.html">Tryck här för mer info!</a>
+    <a href="./info.html">Tryck här för mer info!</a>
     <span class="right-searcharrow">&#187</span>
     
         `
