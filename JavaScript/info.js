@@ -17,7 +17,7 @@ function generateInfoUi (){
     </div>
     <div class="mons">
     <h3>Månar:<br>${data.moons}</h3>
-    </div>
+    
     <a href="../html/index.html">Tillbaka!</a>
     `
 }
