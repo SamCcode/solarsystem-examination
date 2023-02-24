@@ -27,7 +27,7 @@ async function renderPlanetsToUI() {
     }
 }
 
-// rendera info ifall planeterna klcikas på
+// rendera info ifall planeterna klickas på
 function renderOnclickUi(data) {
     searchWrapper.innerHTML = `
     <h1 class="planet__name">${data.name}</h1>
@@ -42,13 +42,45 @@ function renderOnclickUi(data) {
     <div class="moons">
     <h3>Månar: ${data.moons}</h3>
     </div>
+    <span class="left-arrow">&#171</span>
     <a href="../html/info.html">mer info!</a>
+    <span class="right-arrow">&#187</span>
     `
+    // lägg till eventlyssnare till krysset
     let backX = document.querySelector(".back-x");
         backX.addEventListener("click", () => {
         searchWrapper.innerHTML = content;
         addEventListenerToPlanetSearch()
         })
+        // lägg till eventlystnare till pilar
+    let leftArrow = document.querySelector(".left-arrow");
+    let rightArrow = document.querySelector(".right-arrow");
+    leftArrow.addEventListener("click", () => {
+        LeftArrowFunction(data)
+    })
+    rightArrow.addEventListener("click", () => {
+        RightArrowFunction(data)
+    })
+}
+// funktion för vänsterpil när du klickat på en planet
+function LeftArrowFunction(data) {
+    for (let i = 0; i < listOfAllPlanets.length; i++){
+        if (listOfAllPlanets[i].name === data.name && listOfAllPlanets[i].id > 0){
+            let formerPlanet = listOfAllPlanets[i-1]
+            renderOnclickUi(formerPlanet)
+            break
+        }
+    }
+}
+// funktion för högerpil när du klickat på en planet 
+function RightArrowFunction(data) {
+    for (let i = 0; i < listOfAllPlanets.length; i++){
+        if (listOfAllPlanets[i].name === data.name && listOfAllPlanets[i].id < 8){
+            let nextPlanet = listOfAllPlanets[i+1]
+            renderOnclickUi(nextPlanet)
+            break
+        }
+    }
 }
 // gör texten "vill du söka på en planet" klickbar
 function addEventListenerToPlanetSearch(){
@@ -79,7 +111,7 @@ function inputSearchPlanet() {
                 }
                 break
         }
-        else if (writtenInputChars.length > 1 && listOfAllPlanets[i].name.toUpperCase().includes(writtenInputChars.toUpperCase())) {
+        else if (writtenInputChars.length > 1 && listOfAllPlanets[i].name.toUpperCase().includes(writtenInputChars.toUpperCase()) && writtenInputChars.toUpperCase().charAt(0) === listOfAllPlanets[i].name.toUpperCase().charAt(0)) {
             rightWordUi.innerHTML = listOfAllPlanets[i].name.toUpperCase();
             if (keyPress.keyCode === 13){
             localStorage.setItem("clickedPlanet", JSON.stringify(listOfAllPlanets[i]))
@@ -108,7 +140,10 @@ function renderSearchedInfoToUi(inputSearchPlanet) {
     <h2>${inputSearchPlanet.name}</h2>
     <button class="back-x">&#10005</button>
     <p">${inputSearchPlanet.desc}</p> 
+    <span class="left-searcharrow">&#171</span>
     <a href="../html/info.html">Tryck här för mer info!</a>
+    <span class="right-searcharrow">&#187</span>
+    
         `
     let backX = document.querySelector(".back-x");
     backX.addEventListener("click", () => {
@@ -117,6 +152,35 @@ function renderSearchedInfoToUi(inputSearchPlanet) {
         `
         addEventListenerToPlanetSearch()
     })
+    let leftSearchArrow = document.querySelector(".left-searcharrow");
+    let rightSearchArrow = document.querySelector(".right-searcharrow");
+    leftSearchArrow.addEventListener("click", () => {
+        LeftSearchArrowFunction(inputSearchPlanet)
+    })
+    rightSearchArrow.addEventListener("click", () => {
+        RightSearchArrowFunction(inputSearchPlanet)
+    })
+}
+
+// funktion för vänsterpil när du klickat på en planet
+function LeftSearchArrowFunction(data) {
+    for (let i = 0; i < listOfAllPlanets.length; i++){
+        if (listOfAllPlanets[i].name === data.name && listOfAllPlanets[i].id > 0){
+            let formerSearchPlanet = listOfAllPlanets[i-1]
+            renderSearchedInfoToUi(formerSearchPlanet)
+            break
+        }
+    }
+}
+// funktion för högerpil när du klickat på en planet 
+function RightSearchArrowFunction(data) {
+    for (let i = 0; i < listOfAllPlanets.length; i++){
+        if (listOfAllPlanets[i].name === data.name && listOfAllPlanets[i].id < 8){
+            let nextSearchPlanet = listOfAllPlanets[i+1]
+            renderSearchedInfoToUi(nextSearchPlanet)
+            break
+        }
+    }
 }
 // vad som händer om man söker fel
 function wrongCharsSearched() {
