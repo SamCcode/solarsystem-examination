@@ -67,6 +67,7 @@ function LeftArrowFunction(data) {
     for (let i = 0; i < listOfAllPlanets.length; i++){
         if (listOfAllPlanets[i].name === data.name && listOfAllPlanets[i].id > 0){
             let formerPlanet = listOfAllPlanets[i-1]
+            localStorage.setItem("clickedPlanet", JSON.stringify(formerPlanet))
             renderOnclickUi(formerPlanet)
             break
         }
@@ -77,6 +78,7 @@ function RightArrowFunction(data) {
     for (let i = 0; i < listOfAllPlanets.length; i++){
         if (listOfAllPlanets[i].name === data.name && listOfAllPlanets[i].id < 8){
             let nextPlanet = listOfAllPlanets[i+1]
+            localStorage.setItem("clickedPlanet", JSON.stringify(nextPlanet))
             renderOnclickUi(nextPlanet)
             break
         }
@@ -167,6 +169,7 @@ function LeftSearchArrowFunction(data) {
     for (let i = 0; i < listOfAllPlanets.length; i++){
         if (listOfAllPlanets[i].name === data.name && listOfAllPlanets[i].id > 0){
             let formerSearchPlanet = listOfAllPlanets[i-1]
+            localStorage.setItem("clickedPlanet", JSON.stringify(formerSearchPlanet))
             renderSearchedInfoToUi(formerSearchPlanet)
             break
         }
@@ -177,6 +180,7 @@ function RightSearchArrowFunction(data) {
     for (let i = 0; i < listOfAllPlanets.length; i++){
         if (listOfAllPlanets[i].name === data.name && listOfAllPlanets[i].id < 8){
             let nextSearchPlanet = listOfAllPlanets[i+1]
+            localStorage.setItem("clickedPlanet", JSON.stringify(nextSearchPlanet))
             renderSearchedInfoToUi(nextSearchPlanet)
             break
         }

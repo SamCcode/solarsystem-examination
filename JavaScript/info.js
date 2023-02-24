@@ -15,7 +15,7 @@ function generateInfoUi (){
     <h3>Max temp: ${data.temp.day}</h3>
     <h3>Min temp: ${data.temp.night}</h3>
     </div>
-    <div class="mons">
+    <div class="moons">
     <h3>Månar:<br>${data.moons}</h3>
     
     <a href="../html/index.html">Tillbaka!</a>
